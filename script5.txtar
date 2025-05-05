@@ -1,0 +1,31 @@
+exec perl -0777 -i -pe 's/```.*?```\s*//gs' main.py
+exec diff -uw main.py main-clean.py
+
+-- main.py --
+def hello():
+    print("Hello, world!")
+
+```
+test test 
+
+sample
+
+```
+
+```
+test test 
+
+sample
+
+```
+
+def goodbye():
+    print("Goodbye!")
+
+-- main-clean.py --
+def hello():
+    print("Hello, world!")
+
+def goodbye():
+    print("Goodbye!")
+

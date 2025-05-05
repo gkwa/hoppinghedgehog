@@ -1,0 +1,22 @@
+exec perl -0777 -i -pe 's/```.*?```\s*//gs' sample1.py
+exec diff -uw sample1.py sample1-clean.py
+
+-- sample1.py --
+def hello():
+    print("Hello, world!")
+
+```python
+def another_function():
+    return "This shouldn't be here"
+```
+
+def goodbye():
+    print("Goodbye!")
+
+-- sample1-clean.py --
+def hello():
+    print("Hello, world!")
+
+def goodbye():
+    print("Goodbye!")
+
