@@ -1,4 +1,4 @@
-exec perl -0777 -i -pe 's/```.*?```\s*//gs' main.py
+exec perl -0777 -i -pe 's/^```.*?^```\s*//gms' main.py
 exec diff -uw main.py main-clean.py
 
 -- main.py --
